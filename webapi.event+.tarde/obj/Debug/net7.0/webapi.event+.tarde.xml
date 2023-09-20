@@ -4,11 +4,145 @@
         <name>webapi.event+.tarde</name>
     </assembly>
     <members>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Listar">
+            <summary>
+            Método para listar todas as instituições cadastradas
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Cadastrar(webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            Método para cadastrar uma instituição
+            </summary>
+            <param name="instituicao"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Deletar(System.Guid)">
+            <summary>
+            Método para deletar uma instituição
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.BuscarPorId(System.Guid)">
+            <summary>
+            Método para buscar uma instituição pelo seu id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Atualizar(System.Guid,webapi.event_.tarde.Domains.Instituicao)">
+            <summary>
+            Método para atualizar os dados de uma instituição
+            </summary>
+            <param name="id"></param>
+            <param name="instituicao"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Atualizar(System.Guid,webapi.event_.tarde.Domains.TipoEvento)">
+            <summary>
+            Método para atualizar os dados do tipo d eum evento
+            </summary>
+            <param name="id"></param>
+            <param name="tp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Listar">
+            <summary>
+            Método para listar todos os tipos de evento
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.BuscarPorId(System.Guid)">
+            <summary>
+            Método para buscar um tipo de evento através de seu id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Cadastrar(webapi.event_.tarde.Domains.TipoEvento)">
+            <summary>
+            Método para cadastrar um tipo de evento
+            </summary>
+            <param name="tp"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Deletar(System.Guid)">
+            <summary>
+            Método para deletar um tipo de evento
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Cadastrar(webapi.event_.tarde.Domains.TipoUsuario)">
             <summary>
-            
+            Método para cadastrar um tipo de usuário
             </summary>
             <param name="tipoUsuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.BuscarPorId(System.Guid)">
+            <summary>
+            Método para buscar um usuário pelo seu id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Deletar(System.Guid)">
+            <summary>
+            Método para deletar um tipo de usuário
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.ListarTodos">
+            <summary>
+            Método para listar todos os tipos de usuário
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.TipoUsuarioController.Atualizar(System.Guid,webapi.event_.tarde.Domains.TipoUsuario)">
+            <summary>
+            Método para atualizar o nome do tipo de um usuário
+            </summary>
+            <param name="id"></param>
+            <param name="tpu"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.UsuarioController.Cadastrar(webapi.event_.tarde.Domains.Usuario)">
+            <summary>
+            Método para cadastrar um usuário
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.UsuarioController.BuscarPorEmailESenha(System.String,System.String)">
+            <summary>
+            Método para buscar um usuário através de seu email e senha
+            </summary>
+            <param name="email"></param>
+            <param name="senha"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.UsuarioController.BuscarPorId(System.Guid)">
+            <summary>
+            Método para buscar um usuário pelo seu id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.UsuarioController.Listar">
+            <summary>
+            Método para listar todos os usuários
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.UsuarioController.Atualizar(System.Guid,webapi.event_.tarde.Domains.Usuario)">
+            <summary>
+            Método para atualizar os dados de um usuário
+            </summary>
+            <param name="id"></param>
+            <param name="usuario"></param>
             <returns></returns>
         </member>
         <member name="T:webapi.event_.tarde.Migrations.BD">

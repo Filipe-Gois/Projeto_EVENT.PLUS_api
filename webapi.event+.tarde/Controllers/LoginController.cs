@@ -43,6 +43,8 @@ namespace webapi.event_.tarde.Controllers
                         //.Email indica que será um email a ser passado
                         new Claim(JwtRegisteredClaimNames.Email, usuarioBuscado.Email),
 
+                        new Claim(JwtRegisteredClaimNames.Name, usuarioBuscado.Nome),
+
                         //o Role indica o tipo de permissão e vem do usuarioBuscado pq ele é que tem a permissão
                         new Claim(ClaimTypes.Role, usuarioBuscado.TipoUsuario.Titulo)
 

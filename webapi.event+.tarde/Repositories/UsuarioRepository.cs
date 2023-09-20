@@ -64,7 +64,20 @@ namespace webapi.event_.tarde.Repositories
 
             try
             {
-                Usuario usuarioBuscado = ctx.Usuario.Include(u => u.TipoUsuario).FirstOrDefault(u => u.Email == email)!;
+                Usuario usuarioBuscado = ctx.Usuario.Include(u => u.TipoUsuario)
+                    .Select(u => new Usuario
+                    {
+                        IdUsuario = u.IdUsuario,
+                        Nome = u.Nome,
+                        Email = u.Email,
+                        Senha = u.Senha,
+
+                        TipoUsuario = new TipoUsuario
+                        {
+                            IdTipoUsuario = u.IdTipoUsuario,
+                            Titulo = u.TipoUsuario!.Titulo
+                        }
+                    }).FirstOrDefault(u => u.Email == email)!;
 
                 if (usuarioBuscado != null)
                 {
@@ -86,6 +99,61 @@ namespace webapi.event_.tarde.Repositories
                 throw;
             }
 
+        }
+
+        public void Deletar(Guid id)
+        {
+            try
+            {
+                Usuario usuarioBuscado = BuscarPorId(id);
+
+                if (usuarioBuscado != null)
+                {
+                    ctx.Usuario.Remove(usuarioBuscado);
+                    ctx.SaveChanges();
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public List<Usuario> Listar()
+        {
+            try
+            {
+                return ctx.Usuario.ToList();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+
+        }
+
+        public void Atualizar(Guid id, Usuario usuario)
+        {
+            try
+            {
+                Usuario usuarioBuscado = BuscarPorId(id);
+
+                usuarioBuscado.Nome = usuario.Nome;
+                usuarioBuscado.IdTipoUsuario = usuario.IdTipoUsuario;
+                usuarioBuscado.Email = usuario.Email;
+                usuarioBuscado.Senha = usuario.Senha;
+
+                ctx.Update(usuarioBuscado);
+                ctx.SaveChanges();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
     }
 }
