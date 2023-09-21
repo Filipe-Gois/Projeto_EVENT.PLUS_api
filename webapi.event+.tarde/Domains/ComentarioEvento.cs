@@ -24,7 +24,7 @@ namespace webapi.event_.tarde.Domains
         public Guid IdUsuario { get; set; }
 
         [ForeignKey(nameof(IdUsuario))]
-        public Usuario Usuario { get; set; }
+        public Usuario? Usuario { get; set; }
 
         //Ref. à tabela Evento
 
@@ -32,7 +32,7 @@ namespace webapi.event_.tarde.Domains
         public Guid IdEvento { get; set; }
 
         [ForeignKey(nameof(IdEvento))]
-        public Evento Evento { get; set; }
+        public Evento? Evento { get; set; }
 
 
 

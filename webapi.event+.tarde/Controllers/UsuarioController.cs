@@ -24,7 +24,6 @@ namespace webapi.event_.tarde.Controllers
         /// <param name="usuario"></param>
         /// <returns></returns>
         [HttpPost]
-        [Authorize(Roles = "Administrador")]
         public IActionResult Cadastrar(Usuario usuario)
         {
             try
@@ -44,6 +43,7 @@ namespace webapi.event_.tarde.Controllers
         /// <param name="senha"></param>
         /// <returns></returns>
         [HttpGet("{email}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult BuscarPorEmailESenha(string email, string senha)
         {
             try
@@ -95,6 +95,7 @@ namespace webapi.event_.tarde.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Listar()
         {
             try
@@ -137,7 +138,11 @@ namespace webapi.event_.tarde.Controllers
                 return BadRequest(e.Message);
             }
         }
-
+        /// <summary>
+        /// Método para deletar um usuário
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpDelete]
         public IActionResult Deletar(Guid id)
         {

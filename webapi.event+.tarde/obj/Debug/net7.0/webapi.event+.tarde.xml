@@ -4,6 +4,68 @@
         <name>webapi.event+.tarde</name>
     </assembly>
     <members>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Cadastrar(webapi.event_.tarde.Domains.ComentarioEvento)">
+            <summary>
+            Método para adicionar um comentário sobre um evento
+            </summary>
+            <param name="c"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.Deletar(System.Guid)">
+            <summary>
+            Método para deletar um comentário de um evento
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.BuscarPorId(System.Guid)">
+            <summary>
+            Método para buscar um comentário pelo seu id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.ComentarioEventoController.ListarTodos">
+            <summary>
+            Método para listar todos os comentários de todos os eventos
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.ListarEventos">
+            <summary>
+            Método para listar todos os eventos cadastrados
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.Cadastrar(webapi.event_.tarde.Domains.Evento)">
+            <summary>
+            Método para cadastrar um evento
+            </summary>
+            <param name="evento"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.BuscarPorId(System.Guid)">
+            <summary>
+            Método para buscar um evento pelo seu id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.Deletar(System.Guid)">
+            <summary>
+            Método para deletar um evento
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.EventoController.Atualizar(System.Guid,webapi.event_.tarde.Domains.Evento)">
+            <summary>
+            Método para atualizar os dados dde um evento
+            </summary>
+            <param name="id"></param>
+            <param name="evento"></param>
+            <returns></returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.InstituicaoController.Listar">
             <summary>
             Método para listar todas as instituições cadastradas
@@ -37,6 +99,41 @@
             </summary>
             <param name="id"></param>
             <param name="instituicao"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaController.Inscrever(webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            Método para inscrever um usuário em um evento
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaController.Deletar(System.Guid)">
+            <summary>
+            Método para excluir a presença do usuário de um determinado evento
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaController.ListarMinhas(System.Guid)">
+            <summary>
+            Método para listar os eventos na qual um usuário participará
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaController.Listar">
+            <summary>
+            Método para listar todos os usuários cadastrar em cada evento
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:webapi.event_.tarde.Controllers.PresencaController.Atualizar(System.Guid,webapi.event_.tarde.Domains.PresencaEvento)">
+            <summary>
+            Método para alterar os dados de uma presença de evento
+            </summary>
+            <param name="id"></param>
+            <param name="presenca"></param>
             <returns></returns>
         </member>
         <member name="M:webapi.event_.tarde.Controllers.TipoEventoController.Atualizar(System.Guid,webapi.event_.tarde.Domains.TipoEvento)">
@@ -145,6 +242,13 @@
             <param name="usuario"></param>
             <returns></returns>
         </member>
+        <member name="M:webapi.event_.tarde.Controllers.UsuarioController.Deletar(System.Guid)">
+            <summary>
+            Método para deletar um usuário
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
         <member name="T:webapi.event_.tarde.Migrations.BD">
             <inheritdoc />
         </member>
@@ -156,6 +260,13 @@
         </member>
         <member name="M:webapi.event_.tarde.Migrations.BD.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
             <inheritdoc />
+        </member>
+        <member name="M:webapi.event_.tarde.Repositories.PresencaEventoRepository.ListarMinhas(System.Guid)">
+            <summary>
+            
+            </summary>
+            <param name="id">Id do usuário</param>
+            <returns></returns>
         </member>
         <member name="M:webapi.event_.tarde.Utils.Criptografia.GerarHash(System.String)">
             <summary>

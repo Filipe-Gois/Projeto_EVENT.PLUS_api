@@ -11,31 +11,93 @@ namespace webapi.event_.tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize(Roles = "Administrador")]
-    public class TipoEventoController : ControllerBase
+    public class EventoController : ControllerBase
     {
-        private ITipoEvento _tipoEventoRepository { get; set; }
-        public TipoEventoController()
+        private IEvento _eventoRepository { get; set; }
+        public EventoController()
         {
-            _tipoEventoRepository = new TipoEventoRepository();
+            _eventoRepository = new EventoRepository();
         }
         /// <summary>
-        /// Método para atualizar os dados do tipo d eum evento
+        /// Método para listar todos os eventos cadastrados
         /// </summary>
-        /// <param name="id"></param>
-        /// <param name="tp"></param>
         /// <returns></returns>
-        [HttpPut]
-        public IActionResult Atualizar(Guid id, TipoEvento tp)
+        [HttpGet]
+        public IActionResult ListarEventos()
         {
             try
             {
-                TipoEvento tipoEventoBuscado = _tipoEventoRepository.BuscarPorId(id);
+                return StatusCode(200, _eventoRepository.ListarEventos());
+            }
+            catch (Exception e)
+            {
 
-                if (tipoEventoBuscado != null)
+                return BadRequest(e.Message);
+            }
+        }
+        /// <summary>
+        /// Método para cadastrar um evento
+        /// </summary>
+        /// <param name="evento"></param>
+        /// <returns></returns>
+        [HttpPost]
+        [Authorize(Roles = "Administrador")]
+        public IActionResult Cadastrar(Evento evento)
+        {
+            try
+            {
+                _eventoRepository.Cadastrar(evento);
+                return StatusCode(201);
+            }
+            catch (Exception e)
+            {
+
+                return BadRequest(e.Message);
+            }
+        }
+        /// <summary>
+        /// Método para buscar um evento pelo seu id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpGet("{id}")]
+        public IActionResult BuscarPorId(Guid id)
+        {
+            try
+            {
+                Evento eventoBuscado = _eventoRepository.BuscarPorId(id);
+
+                if (eventoBuscado != null)
                 {
-                    _tipoEventoRepository.Atualizar(id, tp);
+                    return StatusCode(200, eventoBuscado);
+                }
+                else
+                {
+                    return StatusCode(404);
+                }
+            }
+            catch (Exception e)
+            {
 
+                return BadRequest(e.Message);
+            }
+        }
+        /// <summary>
+        /// Método para deletar um evento
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
+        [HttpDelete]
+        [Authorize(Roles = "Administrador")]
+        public IActionResult Deletar(Guid id)
+        {
+            try
+            {
+                Evento eventoBuscado = _eventoRepository.BuscarPorId(id);
+
+                if (eventoBuscado != null)
+                {
+                    _eventoRepository.Deletar(id);
                     return StatusCode(200);
                 }
                 else
@@ -50,83 +112,22 @@ namespace webapi.event_.tarde.Controllers
             }
         }
         /// <summary>
-        /// Método para listar todos os tipos de evento
-        /// </summary>
-        /// <returns></returns>
-        [HttpGet]
-        public IActionResult Listar()
-        {
-            try
-            {
-                return StatusCode(200, _tipoEventoRepository.ListarTipos());
-            }
-            catch (Exception e)
-            {
-
-                return BadRequest(e.Message);
-            }
-        }
-        /// <summary>
-        /// Método para buscar um tipo de evento através de seu id
+        /// Método para atualizar os dados dde um evento
         /// </summary>
         /// <param name="id"></param>
+        /// <param name="evento"></param>
         /// <returns></returns>
-        [HttpGet("{id}")]
-        public IActionResult BuscarPorId(Guid id)
+        [HttpPut]
+        [Authorize(Roles = "Administrador")]
+        public IActionResult Atualizar(Guid id, Evento evento)
         {
             try
             {
-                TipoEvento tipoEventoBuscado = _tipoEventoRepository.BuscarPorId(id);
+                Evento eventoBuscado = _eventoRepository.BuscarPorId(id);
 
-                if (tipoEventoBuscado != null)
+                if (eventoBuscado != null)
                 {
-                    return StatusCode(200, tipoEventoBuscado);
-                }
-                else
-                {
-                    return StatusCode(404);
-                }
-            }
-            catch (Exception e)
-            {
-
-                return BadRequest(e.Message);
-            }
-        }
-        /// <summary>
-        /// Método para cadastrar um tipo de evento
-        /// </summary>
-        /// <param name="tp"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public IActionResult Cadastrar(TipoEvento tp)
-        {
-            try
-            {
-                _tipoEventoRepository.Cadastrar(tp);
-                return StatusCode(201);
-            }
-            catch (Exception e)
-            {
-
-                return BadRequest(e.Message);
-            }
-        }
-        /// <summary>
-        /// Método para deletar um tipo de evento
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        [HttpDelete]
-        public IActionResult Deletar(Guid id)
-        {
-            try
-            {
-                TipoEvento tipoEventoBuscado = _tipoEventoRepository.BuscarPorId(id);
-
-                if (tipoEventoBuscado != null)
-                {
-                    _tipoEventoRepository.Deletar(id);
+                    _eventoRepository.Atualizar(id, evento);
                     return StatusCode(200);
                 }
                 else
