@@ -18,7 +18,7 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                usuario.Senha = Criptografia.GerarHash(usuario.Senha);
+                usuario.Senha = Criptografia.GerarHash(usuario.Senha!);
                 ctx.Usuario.Add(usuario);
                 ctx.SaveChanges();
             }
@@ -87,9 +87,6 @@ namespace webapi.event_.tarde.Repositories
                     {
                         return usuarioBuscado;
                     }
-
-
-
                 }
                 return null!;
             }
@@ -105,13 +102,8 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                Usuario usuarioBuscado = BuscarPorId(id);
-
-                if (usuarioBuscado != null)
-                {
-                    ctx.Usuario.Remove(usuarioBuscado);
-                    ctx.SaveChanges();
-                }
+                ctx.Usuario.Remove(BuscarPorId(id));
+                ctx.SaveChanges();
             }
             catch (Exception)
             {
@@ -125,7 +117,18 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                return ctx.Usuario.ToList();
+                return ctx.Usuario.Select(u => new Usuario
+                {
+                    IdUsuario = u.IdUsuario,
+                    Nome = u.Nome,
+                    Email = u.Email,
+
+                    TipoUsuario = new TipoUsuario()
+                    {
+                        IdTipoUsuario = u.IdTipoUsuario,
+                        Titulo = u.TipoUsuario.Titulo
+                    }
+                }).ToList();
             }
             catch (Exception)
             {

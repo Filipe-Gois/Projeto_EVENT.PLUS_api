@@ -17,17 +17,15 @@ namespace webapi.event_.tarde.Repositories
             {
                 Evento eventoBuscado = BuscarPorId(id);
 
-                if (eventoBuscado != null)
-                {
-                    eventoBuscado.Descricao = evento.Descricao;
-                    eventoBuscado.DataEventp = evento.DataEventp;
-                    eventoBuscado.IdTipoEvento = evento.IdTipoEvento;
-                    eventoBuscado.NomeEvento = evento.NomeEvento;
-                    eventoBuscado.IdInstituicao = evento.IdInstituicao;
+                eventoBuscado.Descricao = evento.Descricao;
+                eventoBuscado.DataEventp = evento.DataEventp;
+                eventoBuscado.IdTipoEvento = evento.IdTipoEvento;
+                eventoBuscado.NomeEvento = evento.NomeEvento;
+                eventoBuscado.IdInstituicao = evento.IdInstituicao;
 
-                    ctx.Update(eventoBuscado);
-                    ctx.SaveChanges();
-                }
+                ctx.Update(eventoBuscado);
+                ctx.SaveChanges();
+
             }
             catch (Exception)
             {
@@ -68,13 +66,8 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                Evento eventoBuscado = BuscarPorId(id);
-
-                if (eventoBuscado != null)
-                {
-                    ctx.Evento.Remove(eventoBuscado);
-                    ctx.SaveChanges();
-                }
+                ctx.Evento.Remove(BuscarPorId(id));
+                ctx.SaveChanges();
             }
             catch (Exception)
             {

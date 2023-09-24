@@ -101,6 +101,13 @@
             <param name="instituicao"></param>
             <returns></returns>
         </member>
+        <member name="M:webapi.event_.tarde.Controllers.LoginController.Login(webapi.event_.tarde.ViewModels.LoginViewModel)">
+            <summary>
+            Método para logar um usuário
+            </summary>
+            <param name="usuario"></param>
+            <returns></returns>
+        </member>
         <member name="M:webapi.event_.tarde.Controllers.PresencaController.Inscrever(webapi.event_.tarde.Domains.PresencaEvento)">
             <summary>
             Método para inscrever um usuário em um evento

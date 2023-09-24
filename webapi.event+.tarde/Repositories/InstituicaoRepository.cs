@@ -17,15 +17,12 @@ namespace webapi.event_.tarde.Repositories
             {
                 Instituicao instituicaoBuscada = BuscarPorId(id);
 
-                if (instituicaoBuscada != null)
-                {
+                instituicaoBuscada.NomeFantasia = instituicao.NomeFantasia;
+                instituicaoBuscada.Endereco = instituicao.Endereco;
 
-                    instituicaoBuscada.NomeFantasia = instituicao.NomeFantasia;
-                    instituicaoBuscada.Endereco = instituicao.Endereco;
+                ctx.Update(instituicaoBuscada);
+                ctx.SaveChanges();
 
-                    ctx.Update(instituicaoBuscada);
-                    ctx.SaveChanges();
-                }
             }
             catch (Exception)
             {
@@ -67,13 +64,8 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                Instituicao instituicaoBuscada = BuscarPorId(id);
-
-                if (instituicaoBuscada != null)
-                {
-                    ctx.Instituicao.Remove(instituicaoBuscada);
-                    ctx.SaveChanges();
-                }
+                ctx.Instituicao.Remove(BuscarPorId(id));
+                ctx.SaveChanges();
             }
             catch (Exception)
             {

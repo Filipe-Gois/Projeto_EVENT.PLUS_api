@@ -19,15 +19,11 @@ namespace webapi.event_.tarde.Repositories
             {
                 TipoUsuario tipoUsuarioBuscado = BuscarPorId(id);
 
-                if (tipoUsuarioBuscado != null)
-                {
-                    tipoUsuarioBuscado.Titulo = tipoUsuario.Titulo;
+                tipoUsuarioBuscado.Titulo = tipoUsuario.Titulo;
 
-                    ctx.Update(tipoUsuarioBuscado);
-                    ctx.SaveChanges();
-                }
+                ctx.Update(tipoUsuarioBuscado);
+                ctx.SaveChanges();
 
-                
             }
             catch (Exception)
             {
@@ -68,15 +64,8 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                TipoUsuario tipoUsuarioBuscado = BuscarPorId(id);
-
-                if (tipoUsuarioBuscado != null)
-                {
-                    ctx.TipoUsuario.Remove(tipoUsuarioBuscado);
-                    ctx.SaveChanges();
-                }
-
-
+                ctx.TipoUsuario.Remove(BuscarPorId(id));
+                ctx.SaveChanges();
             }
             catch (Exception)
             {

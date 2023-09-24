@@ -15,13 +15,11 @@ namespace webapi.event_.tarde.Repositories
         {
             TipoEvento tipoEventoBuscado = BuscarPorId(id);
 
-            if (tipoEventoBuscado != null)
-            {
-                tipoEventoBuscado.Titulo = tipoEvento.Titulo;
+            tipoEventoBuscado.Titulo = tipoEvento.Titulo;
 
-                ctx.Update(tipoEventoBuscado);
-                ctx.SaveChanges();
-            }
+            ctx.Update(tipoEventoBuscado);
+            ctx.SaveChanges();
+
         }
 
         public TipoEvento BuscarPorId(Guid id)
@@ -56,7 +54,7 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                throw new NotImplementedException();
+                ctx.TipoEvento.Remove(BuscarPorId(id));
             }
             catch (Exception)
             {
@@ -70,7 +68,11 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                return ctx.TipoEvento.ToList();
+                return ctx.TipoEvento.Select(t => new TipoEvento
+                {
+                    IdTipoEvento = t.IdTipoEvento,
+                    Titulo = t.Titulo
+                }).ToList();
             }
             catch (Exception)
             {

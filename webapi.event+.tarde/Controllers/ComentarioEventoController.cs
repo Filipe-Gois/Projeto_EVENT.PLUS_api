@@ -75,7 +75,16 @@ namespace webapi.event_.tarde.Controllers
             try
             {
                 ComentarioEvento comentarioBuscado = _comentarioEventoRepository.BuscarPorId(id);
-                return StatusCode(200, comentarioBuscado);
+
+                if (comentarioBuscado != null)
+                {
+                    return StatusCode(200, comentarioBuscado);
+                }
+                else
+                {
+                    return StatusCode(404);
+                }
+
             }
             catch (Exception e)
             {
@@ -88,7 +97,6 @@ namespace webapi.event_.tarde.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet]
-        [Authorize(Roles = "Administrador")]
         public IActionResult ListarTodos()
         {
             try

@@ -33,7 +33,6 @@ namespace webapi.event_.tarde.Controllers
             }
             catch (Exception e)
             {
-
                 return BadRequest(e.Message);
             }
         }
@@ -71,6 +70,7 @@ namespace webapi.event_.tarde.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Comum")]
         public IActionResult ListarMinhas(Guid id)
         {
             try

@@ -3339,19 +3339,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\46633783825\\.nuget\\packages\\": {}
+    "C:\\Users\\fytho\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\46633783825\\Desktop\\Projeto_EVENT.PLUS_api\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
+      "projectUniqueName": "C:\\Users\\fytho\\OneDrive\\Documentos\\Github\\Projeto_EVENT.PLUS_api\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
       "projectName": "webapi.event+.tarde",
-      "projectPath": "C:\\Users\\46633783825\\Desktop\\Projeto_EVENT.PLUS_api\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
-      "packagesPath": "C:\\Users\\46633783825\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\46633783825\\Desktop\\Projeto_EVENT.PLUS_api\\webapi.event+.tarde\\obj\\",
+      "projectPath": "C:\\Users\\fytho\\OneDrive\\Documentos\\Github\\Projeto_EVENT.PLUS_api\\webapi.event+.tarde\\webapi.event+.tarde.csproj",
+      "packagesPath": "C:\\Users\\fytho\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\fytho\\OneDrive\\Documentos\\Github\\Projeto_EVENT.PLUS_api\\webapi.event+.tarde\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\46633783825\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\fytho\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -3437,7 +3442,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

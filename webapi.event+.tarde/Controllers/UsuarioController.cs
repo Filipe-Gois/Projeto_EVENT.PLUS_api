@@ -24,6 +24,7 @@ namespace webapi.event_.tarde.Controllers
         /// <param name="usuario"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Cadastrar(Usuario usuario)
         {
             try
@@ -68,6 +69,7 @@ namespace webapi.event_.tarde.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpGet("{id}")]
+        [Authorize(Roles = "Administrador")]
         public IActionResult BuscarPorId(Guid id)
         {
             try
@@ -144,6 +146,7 @@ namespace webapi.event_.tarde.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Deletar(Guid id)
         {
             try

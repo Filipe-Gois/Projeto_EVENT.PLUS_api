@@ -42,13 +42,8 @@ namespace webapi.event_.tarde.Repositories
         {
             try
             {
-                ComentarioEvento comentarioBuscado = BuscarPorId(id);
-
-                if (comentarioBuscado != null)
-                {
-                    ctx.ComentarioEvento.Remove(comentarioBuscado);
-                    ctx.SaveChanges();
-                }
+                ctx.ComentarioEvento.Remove(BuscarPorId(id));
+                ctx.SaveChanges();
             }
             catch (Exception)
             {
@@ -59,7 +54,14 @@ namespace webapi.event_.tarde.Repositories
 
         public List<ComentarioEvento> Listar()
         {
-            return ctx.ComentarioEvento.ToList();
+            return ctx.ComentarioEvento.Select(x => new ComentarioEvento
+            {
+                IdComentarioEvento = x.IdComentarioEvento,
+                IdUsuario = x.IdUsuario,
+                IdEvento = x.IdEvento,
+                Descricao = x.Descricao,
+                Exibe = x.Exibe
+            }).ToList();
         }
     }
 }

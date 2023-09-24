@@ -11,7 +11,6 @@ namespace webapi.event_.tarde.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Produces("application/json")]
-    [Authorize(Roles = "Administrador")]
     public class TipoEventoController : ControllerBase
     {
         private ITipoEvento _tipoEventoRepository { get; set; }
@@ -26,6 +25,7 @@ namespace webapi.event_.tarde.Controllers
         /// <param name="tp"></param>
         /// <returns></returns>
         [HttpPut]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Atualizar(Guid id, TipoEvento tp)
         {
             try
@@ -99,6 +99,7 @@ namespace webapi.event_.tarde.Controllers
         /// <param name="tp"></param>
         /// <returns></returns>
         [HttpPost]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Cadastrar(TipoEvento tp)
         {
             try
@@ -118,6 +119,7 @@ namespace webapi.event_.tarde.Controllers
         /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete]
+        [Authorize(Roles = "Administrador")]
         public IActionResult Deletar(Guid id)
         {
             try
